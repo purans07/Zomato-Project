@@ -2,7 +2,7 @@
 
 **Live app:** https://zomato-review-explorer.streamlit.app/
 
-An interactive data science portfolio project by Puran: explore historical restaurant reviews, compare restaurants, and classify an English review as Positive, Neutral, or Negative.
+An interactive restaurant review analytics application: explore historical restaurant reviews, compare restaurants, and classify an English review as Positive, Neutral, or Negative.
 
 ## App features
 
@@ -40,11 +40,11 @@ The app uses the included model; training is not performed during startup. No AP
 
 ## Deploy on Streamlit Community Cloud
 
-1. Commit and push the app files, `sentiment.py`, `requirements.txt`, `.streamlit/config.toml`, `insights.py`, `data/model_diagnostics.json`, `data/model_error_examples.csv`, both `portfolio_*` artifacts, and existing CSV/JSON data to GitHub.
+1. Commit and push the app files, `sentiment.py`, `requirements.txt`, `.streamlit/config.toml`, `insights.py`, `data/model_diagnostics.json`, `data/model_error_examples.csv`, `models/review_sentiment_model.joblib` and `data/review_model_results.json`, and existing CSV/JSON data to GitHub.
 2. Sign in to Streamlit Community Cloud and connect GitHub.
 3. Create an app from `purans07/Zomato-Project`, selecting the branch containing the app.
 4. Set the entrypoint to `app.py` and choose **Python 3.12** in advanced settings.
-5. Deploy, try the filters and review form, then add the actual deployed URL and a screenshot here and to your portfolio.
+5. Deploy, try the filters and review form, then update the live application URL and screenshot in this README.
 
 Deployment guide: https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app
 
@@ -55,7 +55,7 @@ python train_model.py
 python -m unittest discover -s tests -v
 ```
 
-The app artifact is `models/portfolio_sentiment_model.joblib`, with results in `data/portfolio_model_results.json`. The complete pipeline accepts raw text and applies the same `sentiment.normalize_review` function during training and prediction. It expands contractions, removes URLs/digits/punctuation, and preserves negation. No extra language corpus download is needed.
+The app artifact is `models/review_sentiment_model.joblib`, with results in `data/review_model_results.json`. The complete pipeline accepts raw text and applies the same `sentiment.normalize_review` function during training and prediction. It expands contractions, removes URLs/digits/punctuation, and preserves negation. No extra language corpus download is needed.
 
 A five-fold stratified group split reserves one fold for testing. Identical normalized reviews remain together in both the held-out split and three-fold training cross-validation. Grid search selects Logistic Regression parameters by macro F1. The saved estimator is fitted only on the training partition, matching the reported held-out evaluation.
 

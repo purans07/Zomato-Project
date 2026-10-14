@@ -45,8 +45,8 @@ def train():
         'preprocessing': 'Shared raw-text pipeline; negation preserved; no stemming',
     }
     # Preserve the notebook's original artifact and historical metrics.
-    joblib.dump(search.best_estimator_, ROOT / 'models/portfolio_sentiment_model.joblib')
-    (ROOT / 'data/portfolio_model_results.json').write_text(json.dumps(results, indent=2))
+    joblib.dump(search.best_estimator_, ROOT / 'models/review_sentiment_model.joblib')
+    (ROOT / 'data/review_model_results.json').write_text(json.dumps(results, indent=2))
     print(json.dumps(results, indent=2))
 
 if __name__ == '__main__':

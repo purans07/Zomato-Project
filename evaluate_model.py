@@ -11,7 +11,7 @@ from sentiment import normalize_review
 ROOT = Path(__file__).resolve().parent
 
 def audit():
-    model = joblib.load(ROOT / 'models/portfolio_sentiment_model.joblib')
+    model = joblib.load(ROOT / 'models/review_sentiment_model.joblib')
     data = pd.read_csv(ROOT / 'data/zomato_cleaned_step1.csv')
     data['normalized'] = data['Review'].fillna('').map(normalize_review)
     data = data[data['normalized'].str.len() > 0].reset_index(drop=True)

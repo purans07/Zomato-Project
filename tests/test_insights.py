@@ -8,7 +8,7 @@ from train_model import ROOT
 class FeatureTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.model = joblib.load(ROOT / 'models/portfolio_sentiment_model.joblib')
+        cls.model = joblib.load(ROOT / 'models/review_sentiment_model.joblib')
 
     def test_batch_preserves_rows_and_flags_invalid(self):
         frame = pd.DataFrame({'Review': ['Excellent food and friendly service', None, '123 !!!', 'zzxyqzzzz']})

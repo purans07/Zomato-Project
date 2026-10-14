@@ -1,4 +1,4 @@
-"""Zomato portfolio dashboard. Run with streamlit run app.py."""
+"""Zomato review analytics dashboard. Run with streamlit run app.py."""
 import json
 from pathlib import Path
 import joblib
@@ -37,11 +37,11 @@ def load_data():
 
 @st.cache_resource
 def load_model():
-    return joblib.load(ROOT / 'models/portfolio_sentiment_model.joblib')
+    return joblib.load(ROOT / 'models/review_sentiment_model.joblib')
 
 @st.cache_data
 def load_results():
-    return json.loads((ROOT / 'data/portfolio_model_results.json').read_text())
+    return json.loads((ROOT / 'data/review_model_results.json').read_text())
 
 st.markdown('<div class="hero"><h1>Zomato Review Explorer</h1><p>Discover great dining. Understand the feedback behind every rating.</p></div>', unsafe_allow_html=True)
 try:
