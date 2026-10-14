@@ -46,8 +46,6 @@ The app uses the included model; training is not performed during startup. No AP
 4. Set the entrypoint to `app.py` and choose **Python 3.12** in advanced settings.
 5. Deploy, try the filters and review form, then update the live application URL and screenshot in this README.
 
-Deployment guide: https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app
-
 ## Model and reproducibility
 
 ```bash
